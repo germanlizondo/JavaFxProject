@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.scene.text.Font?>
+<BorderPane prefHeight="790.0" prefWidth="1167.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerEmpleats">
+    <top>
+        <HBox prefHeight="40.0" prefWidth="305.0" styleClass="navbar" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="home" mnemonicParsing="false" prefHeight="40.0" prefWidth="152.0" styleClass="buttonNavbar" text="Home">
+                    <font>
+                        <Font name="Montserrat Light" size="20.0" />
+                    </font>
+                </Button>
+                <Button fx:id="empleats" mnemonicParsing="false" prefHeight="40.0" prefWidth="152.0" styleClass="buttonNavbar" text="Empleats">
+                    <font>
+                        <Font name="Montserrat Light" size="20.0" />
+                    </font>
+                </Button>
+                <Button fx:id="ventes" mnemonicParsing="false" prefHeight="40.0" prefWidth="152.0" styleClass="buttonNavbar" text="Ventes">
+                    <font>
+                        <Font name="Montserrat Light" size="20.0" />
+                    </font>
+                </Button>
+
+            </children>
+        </HBox>
+    </top>
+    <left>
+        <VBox prefHeight="718.0" prefWidth="204.0" styleClass="sidenav" BorderPane.alignment="CENTER" />
+    </left>
+</BorderPane>
