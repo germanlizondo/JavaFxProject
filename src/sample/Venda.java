@@ -1,27 +1,35 @@
 package sample;
 
 import java.util.Date;
+import java.util.Stack;
 
 public class Venda {
 
-    private Product product;
+    private Stack<Product> productes = new Stack<Product>();
     private Date fecha;
     private Vendedor vendedor;
+    private float preuTotal = 0f;
 
-    public Venda(Product product) {
-        this.product = product;
+    public Venda() {
+        this.obtenirPreuTotal();
         this.fecha = new Date();
     }
 
 
-    /**
-     * Gets product.
-     *
-     * @return Value of product.
-     */
-    public Product getProduct() {
-        return product;
+    public void obtenirPreuTotal(){
+
+
+        for (Product p: this.productes) {
+            this.preuTotal = this.preuTotal + p.getPreu();
+        }
+
     }
+
+    public void afegirProducteVenda(Product product){
+        this.productes.add(product);
+    }
+
+
 
     /**
      * Gets fecha.
@@ -32,14 +40,7 @@ public class Venda {
         return fecha;
     }
 
-    /**
-     * Sets new product.
-     *
-     * @param product New value of product.
-     */
-    public void setProduct(Product product) {
-        this.product = product;
-    }
+
 
     /**
      * Sets new fecha.
