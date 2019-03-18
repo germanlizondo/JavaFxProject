@@ -6,6 +6,7 @@ public class Venda {
 
     private Product product;
     private Date fecha;
+    private Vendedor vendedor;
 
     public Venda(Product product) {
         this.product = product;

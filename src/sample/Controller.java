@@ -30,7 +30,6 @@ try {
         System.out.println("Home");
 
 
-
     }else if(actionEvent.getSource()==empleats){
         System.out.println("Empleats");
 
@@ -42,6 +41,8 @@ try {
     }else if(actionEvent.getSource()==ventes){
         System.out.println("Ventes");
 
+        stage=(Stage) empleats.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("ventes.fxml"));
 
     }
 
