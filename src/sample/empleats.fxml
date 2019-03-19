@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.collections.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.text.Font?>
-
 <?import javafx.collections.FXCollections?>
+
+<?import javafx.geometry.Insets?>
 <BorderPane prefHeight="790.0" prefWidth="1167.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerEmpleats">
     <top>
         <HBox prefHeight="40.0" prefWidth="305.0" styleClass="navbar" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="home" mnemonicParsing="false" prefHeight="40.0" prefWidth="152.0" styleClass="buttonNavbar" text="Home">
+                <Button fx:id="home" mnemonicParsing="false" prefHeight="40.0" prefWidth="152.0" styleClass="buttonNavbar" text="Home" onAction="#canviarEscenaAction">
                     <font>
                         <Font name="Montserrat Light" size="20.0" />
                     </font>
                 </Button>
-                <Button fx:id="empleats" mnemonicParsing="false" prefHeight="40.0" prefWidth="152.0" styleClass="buttonNavbar" text="Empleats">
+                <Button fx:id="empleats" mnemonicParsing="false" prefHeight="40.0" prefWidth="152.0" styleClass="buttonNavbar" text="Empleats" onAction="#canviarEscenaAction">
                     <font>
                         <Font name="Montserrat Light" size="20.0" />
                     </font>
                 </Button>
-                <Button fx:id="ventes" mnemonicParsing="false" prefHeight="40.0" prefWidth="152.0" styleClass="buttonNavbar" text="Ventes">
+                <Button fx:id="ventes" mnemonicParsing="false" prefHeight="40.0" prefWidth="152.0" styleClass="buttonNavbar" text="Ventes" onAction="#canviarEscenaAction">
                     <font>
                         <Font name="Montserrat Light" size="20.0" />
                     </font>
@@ -41,9 +44,10 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1098.0" prefWidth="202.0">
                            <children>
-                              <VBox alignment="CENTER" prefHeight="298.0" prefWidth="204.0">
+                              <VBox alignment="CENTER" prefHeight="298.0" prefWidth="204.0" >
+
                                  <children>
-                                    <Label text="Nom" />
+                                     <Label styleClass="labelCrearUsuario" text="Nom" />
                                     <TextField fx:id="nom" />
                                     <Label layoutX="97.0" layoutY="17.0" text="Cognom" />
                                     <TextField fx:id="cognom" layoutX="10.0" layoutY="32.0" />
@@ -51,7 +55,7 @@
                                     <TextField fx:id="edad" />
                                     <Label text="Seguretad Social" />
                                     <TextField fx:id="ss" />
-                                    <Button mnemonicParsing="false" onAction="#anadirEmpleado" text="Añadir Empleado" />
+                                    <Button mnemonicParsing="false" onAction="#anadirEmpleado" text="Añadir Empleado" styleClass="buttonAgregar" />
                                  </children>
                               </VBox>
                            </children>
@@ -63,12 +67,12 @@
          </children></VBox>
     </left>
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tabla" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn prefWidth="125.0" text="Nom" />
           <TableColumn prefWidth="125.0" text="Cognom" />
             <TableColumn prefWidth="125.0" text="Edad" />
-            <TableColumn prefWidth="125.0" text="SeguretatSocial" />
+            <TableColumn prefWidth="150.0" text="SeguretatSocial" />
         </columns>
 
           <items>
@@ -77,4 +81,7 @@
           </items>
       </TableView>
    </center>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </right>
 </BorderPane>
