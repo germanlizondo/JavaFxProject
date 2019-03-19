@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-
 <?import javafx.scene.text.Font?>
+
+<?import javafx.collections.FXCollections?>
 <BorderPane prefHeight="790.0" prefWidth="1167.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerEmpleats">
     <top>
         <HBox prefHeight="40.0" prefWidth="305.0" styleClass="navbar" BorderPane.alignment="CENTER">
@@ -32,6 +33,48 @@
         </HBox>
     </top>
     <left>
-        <VBox prefHeight="718.0" prefWidth="204.0" styleClass="sidenav" BorderPane.alignment="CENTER" />
+        <VBox prefHeight="718.0" prefWidth="204.0" styleClass="sidenav" BorderPane.alignment="CENTER">
+         <children>
+            <Accordion>
+              <panes>
+                <TitledPane animated="false" text="Añadir Empleado">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1098.0" prefWidth="202.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="298.0" prefWidth="204.0">
+                                 <children>
+                                    <Label text="Nom" />
+                                    <TextField fx:id="nom" />
+                                    <Label layoutX="97.0" layoutY="17.0" text="Cognom" />
+                                    <TextField fx:id="cognom" layoutX="10.0" layoutY="32.0" />
+                                    <Label layoutX="97.0" layoutY="10.0" text="Edad" />
+                                    <TextField fx:id="edad" />
+                                    <Label text="Seguretad Social" />
+                                    <TextField fx:id="ss" />
+                                    <Button mnemonicParsing="false" onAction="#anadirEmpleado" text="Añadir Empleado" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </TitledPane>
+              </panes>
+            </Accordion>
+         </children></VBox>
     </left>
+   <center>
+      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn prefWidth="125.0" text="Nom" />
+          <TableColumn prefWidth="125.0" text="Cognom" />
+            <TableColumn prefWidth="125.0" text="Edad" />
+            <TableColumn prefWidth="125.0" text="SeguretatSocial" />
+        </columns>
+
+          <items>
+              <FXCollections fx:factory="observableArrayList">
+              </FXCollections>
+          </items>
+      </TableView>
+   </center>
 </BorderPane>
