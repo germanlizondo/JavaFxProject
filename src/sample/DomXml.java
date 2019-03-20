@@ -14,13 +14,16 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 
 public class DomXml {
 
-   private ArrayList<Empleat> empleats = new ArrayList<Empleat>();
 
-   private File empleatsFile = new File("src/sample/empleats.xml");
+   private Queue<Empleat> empleatQueue = new LinkedList<Empleat>();
+
+    private File empleatsFile = new File("src/sample/empleats.xml");
 
     Document doc;
 
@@ -73,7 +76,7 @@ public class DomXml {
                 ocupacio = eElement.getElementsByTagName("ocupacio").item(0).getTextContent();
 
                 if(ocupacio.equals("Venedor")){
-                    this.empleats.add(new Vendedor(nom,cognom,edad,seguretatsocial));
+                    this.empleatQueue.add(new Vendedor(nom,cognom,edad,seguretatsocial));
                 }
 
 
@@ -85,7 +88,7 @@ public class DomXml {
 
     public void anadirEmpleado(Empleat empleat){
 
-        this.empleats.add(empleat);
+        this.empleatQueue.add(empleat);
 
 
         try {
@@ -99,7 +102,7 @@ public class DomXml {
 
             doc.appendChild(eRaiz);
 
-            for (Empleat e: this.empleats) {
+            for (Empleat e: this.empleatQueue) {
 
                 Element eEmpleado = doc.createElement("empleat");
                 eRaiz.appendChild(eEmpleado);
@@ -144,5 +147,15 @@ public class DomXml {
         }
 
 
+    }
+
+
+
+    public Queue<Empleat> getEmpleatQueue() {
+        return empleatQueue;
+    }
+
+    public void setEmpleatQueue(Queue<Empleat> empleatQueue) {
+        this.empleatQueue = empleatQueue;
     }
 }

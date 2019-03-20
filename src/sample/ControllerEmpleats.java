@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,10 +10,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class ControllerEmpleats {
+
+public class ControllerEmpleats implements Initializable {
 
     DomXml domXml = new DomXml();
     @FXML
@@ -40,10 +45,21 @@ public class ControllerEmpleats {
     private TableView tabla;
 
     @FXML
-    public void initialize() {
-        System.out.println("second");
+    public TableColumn<EmpleatTable, String> nomColumn;
 
-    }
+    @FXML
+    public TableColumn<EmpleatTable, String> cognomColumn;
+    @FXML
+    public TableColumn<EmpleatTable, Integer> edadColumn;
+    @FXML
+    public TableColumn<EmpleatTable, Integer> ssColumn;
+
+
+
+    // add your data here from any source
+    private ObservableList<EmpleatTable> empleatTables = FXCollections.observableArrayList();
+
+
 
     @FXML
     public void anadirEmpleado(ActionEvent actionEvent) {
@@ -55,6 +71,9 @@ public class ControllerEmpleats {
         cognom.setText("");
         edad.setText("");
         ss.setText("");
+
+        this.empleatTables.add(  new EmpleatTable(empleat.getNom(),empleat.getCognom(), empleat.getEdad(),empleat.getSeguretatsocial()));
+
     }
 
 
@@ -96,4 +115,28 @@ public class ControllerEmpleats {
 
 
     }
+
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        nomColumn.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        cognomColumn.setCellValueFactory(new PropertyValueFactory<>("cognom"));
+        edadColumn.setCellValueFactory(new PropertyValueFactory<>("edad"));
+        ssColumn.setCellValueFactory(new PropertyValueFactory<>("seguretatSocial"));
+
+        this.rellenarabla();
+
+        tabla.setItems(empleatTables);
+    }
+
+
+    public void rellenarabla(){
+
+        for (Empleat e: this.domXml.getEmpleatQueue()) {
+            this.empleatTables.add(  new EmpleatTable(e.getNom(),e.getCognom(), e.getEdad(),e.getSeguretatsocial()));
+        }
+    }
+
 }

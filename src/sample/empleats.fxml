@@ -69,10 +69,10 @@
    <center>
       <TableView fx:id="tabla" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="125.0" text="Nom" />
-          <TableColumn prefWidth="125.0" text="Cognom" />
-            <TableColumn prefWidth="125.0" text="Edad" />
-            <TableColumn prefWidth="150.0" text="SeguretatSocial" />
+          <TableColumn prefWidth="125.0" text="Nom" fx:id="nomColumn" />
+          <TableColumn prefWidth="125.0" text="Cognom" fx:id="cognomColumn"/>
+            <TableColumn prefWidth="125.0" text="Edad" fx:id="edadColumn"/>
+            <TableColumn prefWidth="150.0" text="SeguretatSocial" fx:id="ssColumn" />
         </columns>
 
           <items>
