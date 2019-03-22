@@ -12,9 +12,10 @@ public class Venda implements Comparator<Venda> {
     private Date fecha;
     private Vendedor vendedor;
     private float preuTotal = 0f;
+    private static int totalVentes = 0;
 
     public Venda() {
-
+        totalVentes++;
     }
 
 
@@ -79,6 +80,13 @@ public class Venda implements Comparator<Venda> {
         this.preuTotal = preuTotal;
     }
 
+    public static int getTotalVentes() {
+        return totalVentes;
+    }
+
+    public static void setTotalVentes() {
+        Venda.totalVentes++;
+    }
 
     @Override
     public int compare(Venda o1, Venda o2) {

@@ -18,6 +18,8 @@ public abstract class Product implements Comparable<Product>{
         this.model = model;
         this.quantitat = quantitat;
 
+
+
     }
 
     public Product(){
@@ -167,4 +169,6 @@ public abstract class Product implements Comparable<Product>{
     public  int getQuantitat() {
         return quantitat;
     }
+
+
 }

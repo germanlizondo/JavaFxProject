@@ -26,6 +26,7 @@ public class SaxXml extends DefaultHandler {
             case "venta" :
                 this.venda = new Venda();
                 this.ventas.add(this.venda);
+
                 break;
 
         }

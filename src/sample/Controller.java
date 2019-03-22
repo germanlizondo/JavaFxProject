@@ -21,6 +21,10 @@ public class Controller implements Initializable{
     private Hashtable<Integer,Product> products=new Hashtable<Integer, Product>();
 
     private Venda vendaAhora;
+
+    @FXML
+    private Label total;
+
     @FXML
     private Button home;
 
@@ -98,6 +102,8 @@ try {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        total.setText("Total Ventes: "+Venda.getTotalVentes());
+
         try {
             StaxXml staxXml = new StaxXml();
             int ctn = 1;
@@ -145,7 +151,8 @@ this.vendaAhora.obtenirPreuTotal();
 
        empleado.setText("");
        productos.setText("");
-
+        Venda.setTotalVentes();
+        total.setText("Total Ventes: "+Venda.getTotalVentes());
 
 
     }
