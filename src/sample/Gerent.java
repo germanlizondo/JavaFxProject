@@ -1,22 +1,30 @@
 package sample;
 
+import java.util.TreeSet;
+
 public class Gerent extends Empleat {
 
-    private Encargado<Tauleta,Videoconsola> productosEncargado = new Encargado<>();
-    private Encargado<Gerent,Vendedor> empleadosEncargado = new Encargado<>();
+    private Encargado<TreeSet<Tauleta>,TreeSet<Videoconsola>> productosEncargado = new Encargado<>();
+    private Encargado<TreeSet<Gerent>,TreeSet<Vendedor>> empleadosEncargado = new Encargado<>();
 
-
+    @Override
+    public String toString() {
+        return "Gerent{" +
+                "productosEncargado=" + productosEncargado +
+                ", empleadosEncargado=" + empleadosEncargado +
+                '}';
+    }
 
     public Gerent(String nom, String cognom, int edad, int seguretatsocial) {
         super(nom, cognom, edad, seguretatsocial);
     }
 
-    public void encargarseDeProductos(Tauleta tauleta,Videoconsola videoconsola){
+    public void encargarseDeProductos(TreeSet<Tauleta> tauleta,TreeSet<Videoconsola> videoconsola){
         this.productosEncargado.setObejto1(tauleta);
         this.productosEncargado.setObjeto2(videoconsola);
     }
 
-    public void encargarseDeEmpleados(Gerent gerent,Vendedor vendedor){
+    public void encargarseDeEmpleados(TreeSet<Gerent> gerent,TreeSet<Vendedor> vendedor){
         this.empleadosEncargado.setObejto1(gerent);
         this.empleadosEncargado.setObjeto2(vendedor);
     }

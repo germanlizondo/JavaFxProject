@@ -9,6 +9,11 @@ public class Vendedor extends Empleat {
 
     }
 
+    @Override
+    public String toString() {
+        return "Vendedor{}";
+    }
+
     public Vendedor(String nom){
         super(nom);
     }

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ventas>
+    <venta><vendedor>german</vendedor>
+        <fecha>Fri Mar 22 12:09:35 CET 2019</fecha>
+        <precio>0.0</precio><productos/>
+        <producto><tipo>tauleta</tipo>
+            <referencia>1256</referencia><nom>iPad</nom><precioProduct>700.0</precioProduct><garantia>No</garantia><marca>Apple</marca><model>Air 2</model></producto></venta></ventas>

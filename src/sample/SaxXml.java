@@ -45,6 +45,7 @@ public class SaxXml extends DefaultHandler {
             case "fecha":
                 try {
                     this.venda.setFecha(this.dateFormat.parse(this.valor));
+                    System.out.println(this.dateFormat.parse(this.valor));
                     this.valor = "";
                 }catch (Exception e){
                     e.fillInStackTrace();
@@ -57,11 +58,26 @@ public class SaxXml extends DefaultHandler {
 
                 if(this.valor.equals("tauleta")){
                     this.product = new Tauleta();
-                    System.out.println("HELLO TAULETA");
                 }
                 break;
             case "referencia":
                 this.product.setReferencia(Integer.parseInt(this.valor));
+                break;
+            case "nom":
+                this.product.setNom(this.valor);
+                break;
+            case "precioProduct":
+                this.product.setPreu(Float.parseFloat(this.valor));
+                break;
+            case "garantia":
+                if(this.valor.equals("No")) this.product.setGarantia(false);
+                else this.product.setGarantia(true);
+                break;
+            case "marca":
+                this.product.setMarca(this.valor);
+                break;
+            case "model":
+                this.product.setModel(this.valor);
                 this.venda.afegirProducteVenda(this.product);
                 break;
 
@@ -77,6 +93,12 @@ public class SaxXml extends DefaultHandler {
 
     }
 
+    @Override
+    public void endDocument() throws SAXException {
+        super.endDocument();
+
+
+    }
 
     public ArrayList<Venda> getVentas() {
         return ventas;

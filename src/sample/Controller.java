@@ -137,9 +137,10 @@ try {
        for (int x = 0;x < arrayProds.length;x++){
        this.vendaAhora.afegirProducteVenda(productoEncontrado.encontrar(Integer.parseInt(arrayProds[x])));
        }
-
+this.vendaAhora.obtenirPreuTotal();
       DomXmlVentas domXmlVentas = new DomXmlVentas();
        domXmlVentas.escribirVenda(this.vendaAhora);
+
 
 
        empleado.setText("");

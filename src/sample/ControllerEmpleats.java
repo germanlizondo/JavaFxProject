@@ -15,11 +15,17 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.TreeSet;
 
 
 public class ControllerEmpleats implements Initializable {
 
     DomXml domXml = new DomXml();
+    private TreeSet<Tauleta> tauletas = new TreeSet<Tauleta>();
+    private TreeSet<Videoconsola> videoconsolas = new TreeSet<Videoconsola>();
+    private TreeSet<Gerent> gerents = new TreeSet<Gerent>();
+    private TreeSet<Vendedor> vendedors = new TreeSet<Vendedor>();
+
     @FXML
     private Button home;
     @FXML
@@ -29,6 +35,11 @@ public class ControllerEmpleats implements Initializable {
 
     @FXML
     private Button ventes;
+
+    @FXML
+    private TextField gerente;
+    @FXML
+    private TextField empleado;
 
     @FXML
     private TextField nom;
@@ -72,9 +83,12 @@ public class ControllerEmpleats implements Initializable {
         Empleat empleat;
         if(toogle.isSelected()){
             empleat = new Gerent(nom.getText(),cognom.getText(),Integer.parseInt(edad.getText()),Integer.parseInt(ss.getText()));
+            ((Gerent) empleat).encargarseDeEmpleados(gerents,vendedors);
+            ((Gerent) empleat).encargarseDeProductos(tauletas,videoconsolas);
 }
     else {
          empleat = new Vendedor(nom.getText(),cognom.getText(),Integer.parseInt(edad.getText()),Integer.parseInt(ss.getText()));
+
         }
 
         domXml.anadirEmpleado(empleat);
@@ -154,10 +168,18 @@ public class ControllerEmpleats implements Initializable {
         String tipo = "";
         for (Empleat e: this.domXml.getEmpleatQueue()) {
 
-            if(e instanceof Vendedor) tipo = "Vendedor";
-            else tipo = "Gerente";
+            if(e instanceof Vendedor){
+                tipo = "Vendedor";
+
+            }
+            else {
+                tipo = "Gerente";
+
+            }
             this.empleatTables.add(  new EmpleatTable(e.getNom(),e.getCognom(), e.getEdad(),e.getSeguretatsocial(),tipo));
         }
     }
+
+
 
 }

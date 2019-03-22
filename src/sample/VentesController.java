@@ -21,6 +21,7 @@ import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class VentesController implements Initializable{
@@ -121,6 +122,7 @@ public class VentesController implements Initializable{
             this.ventas.sort(new ComparadorFecha());
 
 
+
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         } catch (SAXException e) {
@@ -158,9 +160,10 @@ public class VentesController implements Initializable{
 
 
     public void rellenarTabla(){
-
+        String pattern = "dd-MM-YYYY";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         this.ventas.forEach( v -> {
-            this.ventesTables.add(  new VentesTable(v.getFecha().toString(),
+            this.ventesTables.add(  new VentesTable(simpleDateFormat.format(v.getFecha()).toString(),
                     this.verProductos(v),v.getPreuTotal(),
                     v.getVendedor().getNom()));
         });

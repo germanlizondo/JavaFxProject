@@ -1,6 +1,6 @@
 package sample;
 
-public abstract class Empleat  {
+public abstract class Empleat extends Persona  {
 
     private String nom;
     private String cognom;
