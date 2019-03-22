@@ -10,13 +10,15 @@ public class EmpleatTable {
     private SimpleStringProperty cognom;
     private SimpleIntegerProperty edad;
     private SimpleIntegerProperty seguretatSocial;
+    private SimpleStringProperty tipo;
 
 
-    public EmpleatTable(String nom, String cognom, int edad, int seguretatSocial) {
+    public EmpleatTable(String nom, String cognom, int edad, int seguretatSocial,String tipo) {
         this.nom = new SimpleStringProperty(nom);
         this.cognom = new SimpleStringProperty(cognom);;
         this.edad = new SimpleIntegerProperty(edad);
-        this.seguretatSocial =  new SimpleIntegerProperty(seguretatSocial);;
+        this.seguretatSocial =  new SimpleIntegerProperty(seguretatSocial);
+        this.tipo = new SimpleStringProperty(tipo);
     }
 
     public String getNom() {
@@ -50,4 +52,15 @@ public class EmpleatTable {
         this.seguretatSocial = new SimpleIntegerProperty(seguretatSocial);
     }
 
+    public void setTipo(String tipo) {
+        this.tipo = new SimpleStringProperty(tipo);
+    }
+
+    public String getTipo() {
+        return tipo.get();
+    }
+
+    public SimpleStringProperty tipoProperty() {
+        return tipo;
+    }
 }

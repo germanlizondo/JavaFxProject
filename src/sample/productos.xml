@@ -1,0 +1,35 @@
+<productos>
+    <product>
+        <tipo>tauleta</tipo>
+        <referencia>1256</referencia>
+        <nom>iPad</nom>
+        <preu>700</preu>
+        <marca>Apple</marca>
+        <model>Air 2</model>
+        <quantitat>500</quantitat>
+        <polazades>10</polazades>
+        <resPantalla>1920x1080</resPantalla>
+    </product>
+    <product>
+        <tipo>tauleta</tipo>
+        <referencia>12567</referencia>
+        <nom>Galaxy Tab</nom>
+        <preu>500</preu>
+        <marca>Samsung</marca>
+        <model>5</model>
+        <quantitat>1500</quantitat>
+        <polazades>5</polazades>
+        <resPantalla>1920x1080</resPantalla>
+    </product>
+    <product>
+        <tipo>tauleta</tipo>
+        <referencia>53421</referencia>
+        <nom>Surface</nom>
+        <preu>700</preu>
+        <marca>Microsoft</marca>
+        <model>5</model>
+        <quantitat>5300</quantitat>
+        <polazades>10</polazades>
+        <resPantalla>1920x1080</resPantalla>
+    </product>
+</productos>

@@ -13,6 +13,10 @@ public class Tauleta extends Product {
 
     public Tauleta(){ }
 
+    public Tauleta(int referencia, String nom) {
+        super(referencia, nom);
+    }
+
     /**
      * Gets resPantalla.
      *

@@ -24,6 +24,11 @@ public abstract class Product implements Comparable<Product>{
 
     }
 
+    public Product(int referencia,String nom){
+        this.referencia = referencia;
+        this.nom = nom;
+    }
+
     @Override
     public String toString() {
         return marca+" "+nom + "|ref: "+referencia +"|n "+quantitat ;

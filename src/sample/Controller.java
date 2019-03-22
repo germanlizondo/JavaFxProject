@@ -10,12 +10,15 @@ import javafx.stage.*;
 import javax.xml.stream.XMLStreamException;
 import java.io.FileNotFoundException;
 import java.net.URL;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Controller implements Initializable{
+
+   public interface EncontrarProducto{
+       Product encontrar(int ref);
+   }
+
+    private Hashtable<Integer,Product> products=new Hashtable<Integer, Product>();
 
     private Venda vendaAhora;
     @FXML
@@ -36,6 +39,20 @@ public class Controller implements Initializable{
     @FXML
     private TextField productos;
 
+
+
+    EncontrarProducto productoEncontrado = (ref)->{
+
+        for (Map.Entry<Integer, Product> entry : this.products.entrySet()) {
+
+            Integer key = entry.getKey();
+            Product value = entry.getValue();
+
+
+           if(value.getReferencia() == ref) return  value;
+        }
+        return null;
+    };
 
 
 
@@ -90,6 +107,8 @@ try {
                 Product value = entry.getValue();
 
                 listaProductos.getItems().add(value);
+
+                this.products.put(key,value);
             }
 
 
@@ -115,13 +134,22 @@ try {
        this.vendaAhora.setFecha(hoy);
        this.vendaAhora.setVendedor(new Vendedor(emp));
 
-       for (int x = 0;x <= arrayProds.length;x++){
-
+       for (int x = 0;x < arrayProds.length;x++){
+       this.vendaAhora.afegirProducteVenda(productoEncontrado.encontrar(Integer.parseInt(arrayProds[x])));
        }
+
+      DomXmlVentas domXmlVentas = new DomXmlVentas();
+       domXmlVentas.escribirVenda(this.vendaAhora);
+
+
+       empleado.setText("");
+       productos.setText("");
 
 
 
     }
+
+
 
 
 

@@ -77,6 +77,8 @@ public class DomXml {
 
                 if(ocupacio.equals("Venedor")){
                     this.empleatQueue.add(new Vendedor(nom,cognom,edad,seguretatsocial));
+                }else{
+                    this.empleatQueue.add(new Gerent(nom,cognom,edad,seguretatsocial));
                 }
 
 
@@ -126,7 +128,7 @@ public class DomXml {
                 Element eOcupacio = doc.createElement("ocupacio");
 
                 if(e instanceof Vendedor) eOcupacio.appendChild(doc.createTextNode("Venedor"));
-                else eOcupacio.appendChild(doc.createTextNode("No venedor"));
+                else eOcupacio.appendChild(doc.createTextNode("Gerente"));
                 eEmpleado.appendChild(eOcupacio);
 
             }
@@ -148,6 +150,8 @@ public class DomXml {
 
 
     }
+
+
 
 
 

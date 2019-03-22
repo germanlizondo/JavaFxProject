@@ -22,7 +22,8 @@ public class ControllerEmpleats implements Initializable {
     DomXml domXml = new DomXml();
     @FXML
     private Button home;
-
+    @FXML
+    private ToggleButton toogle;
     @FXML
     private Button empleats;
 
@@ -44,8 +45,13 @@ public class ControllerEmpleats implements Initializable {
     @FXML
     private TableView tabla;
 
+
+
     @FXML
     public TableColumn<EmpleatTable, String> nomColumn;
+
+    @FXML
+    public TableColumn<EmpleatTable, String> tipo;
 
     @FXML
     public TableColumn<EmpleatTable, String> cognomColumn;
@@ -63,8 +69,14 @@ public class ControllerEmpleats implements Initializable {
 
     @FXML
     public void anadirEmpleado(ActionEvent actionEvent) {
+        Empleat empleat;
+        if(toogle.isSelected()){
+            empleat = new Gerent(nom.getText(),cognom.getText(),Integer.parseInt(edad.getText()),Integer.parseInt(ss.getText()));
+}
+    else {
+         empleat = new Vendedor(nom.getText(),cognom.getText(),Integer.parseInt(edad.getText()),Integer.parseInt(ss.getText()));
+        }
 
-        Empleat empleat = new Vendedor(nom.getText(),cognom.getText(),Integer.parseInt(edad.getText()),Integer.parseInt(ss.getText()));
         domXml.anadirEmpleado(empleat);
 
         nom.setText("");
@@ -72,7 +84,10 @@ public class ControllerEmpleats implements Initializable {
         edad.setText("");
         ss.setText("");
 
-        this.empleatTables.add(  new EmpleatTable(empleat.getNom(),empleat.getCognom(), empleat.getEdad(),empleat.getSeguretatsocial()));
+        String tipo = "";
+        if(empleat instanceof Vendedor) tipo = "Vendedor";
+        else tipo = "Gerente";
+        this.empleatTables.add(  new EmpleatTable(empleat.getNom(),empleat.getCognom(), empleat.getEdad(),empleat.getSeguretatsocial(),tipo));
 
     }
 
@@ -125,6 +140,8 @@ public class ControllerEmpleats implements Initializable {
         cognomColumn.setCellValueFactory(new PropertyValueFactory<>("cognom"));
         edadColumn.setCellValueFactory(new PropertyValueFactory<>("edad"));
         ssColumn.setCellValueFactory(new PropertyValueFactory<>("seguretatSocial"));
+        tipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+
 
         this.rellenarTabla();
 
@@ -134,8 +151,12 @@ public class ControllerEmpleats implements Initializable {
 
     public void rellenarTabla(){
 
+        String tipo = "";
         for (Empleat e: this.domXml.getEmpleatQueue()) {
-            this.empleatTables.add(  new EmpleatTable(e.getNom(),e.getCognom(), e.getEdad(),e.getSeguretatsocial()));
+
+            if(e instanceof Vendedor) tipo = "Vendedor";
+            else tipo = "Gerente";
+            this.empleatTables.add(  new EmpleatTable(e.getNom(),e.getCognom(), e.getEdad(),e.getSeguretatsocial(),tipo));
         }
     }
 
