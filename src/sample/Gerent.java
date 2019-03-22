@@ -2,7 +2,7 @@ package sample;
 
 import java.util.TreeSet;
 
-public class Gerent extends Empleat {
+public class Gerent extends Empleat implements Jefe {
 
     private Encargado<TreeSet<Tauleta>,TreeSet<Videoconsola>> productosEncargado = new Encargado<>();
     private Encargado<TreeSet<Gerent>,TreeSet<Vendedor>> empleadosEncargado = new Encargado<>();
@@ -28,6 +28,13 @@ public class Gerent extends Empleat {
         this.empleadosEncargado.setObejto1(gerent);
         this.empleadosEncargado.setObjeto2(vendedor);
     }
+
+    @Override
+    public void gestionarVentas() {
+
+        System.out.println("Se han hecho un total de "+Venda.getTotalVentes()+ " Ventas");
+    }
+
     public class Encargado<T,E>{
 
         private T obejto1;
