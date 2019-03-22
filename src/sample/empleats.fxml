@@ -21,7 +21,7 @@
                         <Font name="Montserrat Light" size="20.0" />
                     </font>
                 </Button>
-                <Button fx:id="empleats" mnemonicParsing="false" prefHeight="40.0" prefWidth="152.0" styleClass="buttonNavbar" text="Empleats" onAction="#canviarEscenaAction">
+                <Button fx:id="empleats" mnemonicParsing="false" prefHeight="40.0" prefWidth="152.0" styleClass="buttonNavbar" style="-fx-text-fill: white;" text="Empleats" onAction="#canviarEscenaAction">
                     <font>
                         <Font name="Montserrat Light" size="20.0" />
                     </font>

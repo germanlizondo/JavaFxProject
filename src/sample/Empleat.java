@@ -15,6 +15,9 @@ public abstract class Empleat  {
         this.seguretatsocial = seguretatsocial;
     }
 
+    public Empleat(String nom){
+        this.nom = nom;
+    }
     /**
      * Gets seguretatsocial.
      *

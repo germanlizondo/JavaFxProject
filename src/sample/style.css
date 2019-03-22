@@ -5,6 +5,7 @@
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
 }
+
 .navbar{
     -fx-padding: 10px;
     -fx-background-color: rgba(255,255,255,0.3);
@@ -16,6 +17,8 @@
 
 }
 
+
+
 .buttonNavbar{
     -fx-padding: 10px;
     -fx-background-color: transparent;
@@ -24,6 +27,7 @@
     -fx-cursor: hand;
     -fx-text-fill: white;
 }
+
 
 
 

@@ -1,6 +1,6 @@
 package sample;
 
-public abstract class Product {
+public abstract class Product implements Comparable<Product>{
 
     private int referencia;
     private String nom;
@@ -8,20 +8,34 @@ public abstract class Product {
     private boolean garantia;
     private String marca;
     private String model;
+    private int quantitat;
 
-    private static int quantitat;
-
-    public Product(int referencia, String nom, float preu, boolean garantia, String marca, String model) {
+    public Product(int referencia, String nom, float preu,  String marca, String model,int quantitat) {
         this.referencia = referencia;
         this.nom = nom;
         this.preu = preu;
-        this.garantia = garantia;
         this.marca = marca;
         this.model = model;
+        this.quantitat = quantitat;
 
-        quantitat++;
     }
 
+    public Product(){
+
+    }
+
+    @Override
+    public String toString() {
+        return marca+" "+nom + "|ref: "+referencia +"|n "+quantitat ;
+    }
+
+    @Override
+    public int compareTo(Product o) {
+        if(this.quantitat > o.quantitat) return 1;
+        else if(this.quantitat < o.quantitat) return -1;
+        else return 0;
+
+    }
 
     /**
      * Sets new nom.
@@ -136,8 +150,8 @@ public abstract class Product {
      *
      * @param quantitat New value of quantitat.
      */
-    public static void setQuantitat(int quantitat) {
-        quantitat = quantitat;
+    public void setQuantitat(int quantitat) {
+        this.quantitat = quantitat;
     }
 
     /**
@@ -145,7 +159,7 @@ public abstract class Product {
      *
      * @return Value of quantitat.
      */
-    public static int getQuantitat() {
+    public  int getQuantitat() {
         return quantitat;
     }
 }

@@ -14,17 +14,17 @@
    <top>
       <HBox prefHeight="40.0" prefWidth="305.0" styleClass="navbar" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="home" mnemonicParsing="false" prefHeight="40.0" prefWidth="152.0" styleClass="buttonNavbar" text="Home" onAction="#canviarEscenaAction">
+            <Button fx:id="home" mnemonicParsing="false" onAction="#canviarEscenaAction" prefHeight="40.0" prefWidth="152.0" style="-fx-text-fill: white;" styleClass="buttonNavbar" text="Home">
                <font>
                   <Font name="Montserrat Light" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="empleats" mnemonicParsing="false" prefHeight="40.0" prefWidth="152.0" styleClass="buttonNavbar" text="Empleats" onAction="#canviarEscenaAction">
+            <Button fx:id="empleats" mnemonicParsing="false" onAction="#canviarEscenaAction" prefHeight="40.0" prefWidth="152.0" styleClass="buttonNavbar" text="Empleats">
                <font>
                   <Font name="Montserrat Light" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="ventes" mnemonicParsing="false" prefHeight="40.0" prefWidth="152.0" styleClass="buttonNavbar" text="Ventes" onAction="#canviarEscenaAction">
+            <Button fx:id="ventes" mnemonicParsing="false" onAction="#canviarEscenaAction" prefHeight="40.0" prefWidth="152.0" styleClass="buttonNavbar" text="Ventes">
                <font>
                   <Font name="Montserrat Light" size="20.0" />
                </font>
@@ -34,6 +34,33 @@
       </HBox>
    </top>
    <left>
-      <VBox prefHeight="718.0" prefWidth="204.0" styleClass="sidenav" BorderPane.alignment="CENTER" />
+      <VBox prefHeight="718.0" prefWidth="204.0" styleClass="sidenav" BorderPane.alignment="CENTER">
+         <children>
+            <Accordion>
+              <panes>
+                <TitledPane animated="false" text="Hacer Venta">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="280.0" prefWidth="200.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="298.0" prefWidth="204.0" >
+
+                                 <children>
+                                    <Label styleClass="labelCrearUsuario" text="Empleado" />
+                                    <TextField fx:id="empleado" />
+                                    <Label layoutX="97.0" layoutY="17.0" text="Productos" />
+                                    <TextField fx:id="productos" layoutX="10.0" layoutY="32.0" />
+
+                                    <Button mnemonicParsing="false" onAction="#hacerVenta" text="Hacer Venta" styleClass="buttonAgregar" />
+                                 </children>
+                              </VBox>
+                           </children></AnchorPane>
+                  </content>
+                </TitledPane>
+              </panes>
+            </Accordion>
+         </children></VBox>
    </left>
+   <right>
+      <ListView fx:id="listaProductos" prefHeight="726.0" prefWidth="285.0" BorderPane.alignment="CENTER" />
+   </right>
 </BorderPane>

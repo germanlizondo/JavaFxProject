@@ -126,13 +126,13 @@ public class ControllerEmpleats implements Initializable {
         edadColumn.setCellValueFactory(new PropertyValueFactory<>("edad"));
         ssColumn.setCellValueFactory(new PropertyValueFactory<>("seguretatSocial"));
 
-        this.rellenarabla();
+        this.rellenarTabla();
 
         tabla.setItems(empleatTables);
     }
 
 
-    public void rellenarabla(){
+    public void rellenarTabla(){
 
         for (Empleat e: this.domXml.getEmpleatQueue()) {
             this.empleatTables.add(  new EmpleatTable(e.getNom(),e.getCognom(), e.getEdad(),e.getSeguretatsocial()));

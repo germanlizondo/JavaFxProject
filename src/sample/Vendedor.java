@@ -8,4 +8,8 @@ public class Vendedor extends Empleat {
 
 
     }
+
+    public Vendedor(String nom){
+        super(nom);
+    }
 }

@@ -8,16 +8,14 @@ public class Videoconsola extends Product {
     private String cpu;
     private String gpu;
 
-
-    public Videoconsola(int referencia, String nom, float preu, boolean garantia, String marca, String model, float capacitat, float pes, int ram, String cpu, String gpu) {
-        super(referencia, nom, preu, garantia, marca, model);
+    public Videoconsola(int referencia, String nom, float preu, String marca, String model, int quantitat, float capacitat, float pes, int ram, String cpu, String gpu) {
+        super(referencia, nom, preu, marca, model, quantitat);
         this.capacitat = capacitat;
         this.pes = pes;
         this.ram = ram;
         this.cpu = cpu;
         this.gpu = gpu;
     }
-
 
     /**
      * Sets new pes.

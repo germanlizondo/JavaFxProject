@@ -1,9 +1,12 @@
 package sample;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Stack;
 
-public class Venda {
+public class Venda implements Comparator<Venda> {
 
     private Stack<Product> productes = new Stack<Product>();
     private Date fecha;
@@ -11,8 +14,7 @@ public class Venda {
     private float preuTotal = 0f;
 
     public Venda() {
-        this.obtenirPreuTotal();
-        this.fecha = new Date();
+
     }
 
 
@@ -49,5 +51,37 @@ public class Venda {
      */
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    public Stack<Product> getProductes() {
+        return productes;
+    }
+
+    public void setProductes(Stack<Product> productes) {
+        this.productes = productes;
+    }
+
+    public Vendedor getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(Vendedor vendedor) {
+
+
+        this.vendedor = vendedor;
+    }
+
+    public float getPreuTotal() {
+        return preuTotal;
+    }
+
+    public void setPreuTotal(float preuTotal) {
+        this.preuTotal = preuTotal;
+    }
+
+
+    @Override
+    public int compare(Venda o1, Venda o2) {
+        return o1.getFecha().compareTo(o2.getFecha());
     }
 }
